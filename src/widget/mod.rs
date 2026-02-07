@@ -69,7 +69,9 @@ pub use iced::widget::{Image, image};
 pub use iced::widget::{Lazy, lazy};
 
 #[doc(inline)]
-pub use iced::widget::{MouseArea, mouse_area};
+pub use iced::widget::{
+    MouseArea, OnAutoScroll, OnDrag, OnEnterExit, OnMouseButton, OnResize, OnScroll, mouse_area,
+};
 
 #[doc(inline)]
 pub use iced::widget::{PaneGrid, pane_grid};

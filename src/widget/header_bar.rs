@@ -423,18 +423,18 @@ impl<'a, Message: Clone + 'static> HeaderBar<'a, Message> {
 
         // Assigns a message to emit when the headerbar is dragged.
         if let Some(message) = self.on_drag.clone() {
-            widget = widget.on_drag(message);
+            widget = widget.on_drag(move |_| message.clone());
         }
 
         // Assigns a message to emit when the headerbar is double-clicked.
         if let Some(message) = self.on_maximize.clone() {
-            widget = widget.on_release(message);
+            widget = widget.on_release(move |_| message.clone());
         }
         if let Some(message) = self.on_double_click.clone() {
-            widget = widget.on_double_press(message);
+            widget = widget.on_double_press(move |_| message.clone());
         }
         if let Some(message) = self.on_right_click.clone() {
-            widget = widget.on_right_press(message);
+            widget = widget.on_right_press(move |_| message.clone());
         }
 
         widget.into()

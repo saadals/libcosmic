@@ -137,7 +137,8 @@ where
                             // Left click
                             .apply(|mouse_area| {
                                 if let Some(ref on_item_mb) = val.on_item_mb_left {
-                                    mouse_area.on_press((on_item_mb)(entity))
+                                    let msg = (on_item_mb)(entity);
+                                    mouse_area.on_press(move |_| msg.clone())
                                 } else {
                                     mouse_area
                                 }
@@ -145,7 +146,8 @@ where
                             // Double click
                             .apply(|mouse_area| {
                                 if let Some(ref on_item_mb) = val.on_item_mb_left {
-                                    mouse_area.on_double_click((on_item_mb)(entity))
+                                    let msg = (on_item_mb)(entity);
+                                    mouse_area.on_double_click(move |_| msg.clone())
                                 } else {
                                     mouse_area
                                 }
@@ -153,7 +155,8 @@ where
                             // Middle click
                             .apply(|mouse_area| {
                                 if let Some(ref on_item_mb) = val.on_item_mb_mid {
-                                    mouse_area.on_middle_press((on_item_mb)(entity))
+                                    let msg = (on_item_mb)(entity);
+                                    mouse_area.on_middle_press(move |_| msg.clone())
                                 } else {
                                     mouse_area
                                 }
@@ -161,7 +164,8 @@ where
                             // Right click
                             .apply(|mouse_area| {
                                 if let Some(ref on_item_mb) = val.on_item_mb_right {
-                                    mouse_area.on_right_press((on_item_mb)(entity))
+                                    let msg = (on_item_mb)(entity);
+                                    mouse_area.on_right_press(move |_| msg.clone())
                                 } else {
                                     mouse_area
                                 }
